@@ -4,13 +4,7 @@ import CourseType from "@/components/CourseType";
 import StudentRegistration from "@/components/StudentRegistration";
 import { notFound } from "next/navigation";
 
-interface Props {
-  params: {
-    slug: string;
-  };
-}
-
-export default function DynamicPage({ params }: Props) {
+export default function DynamicPage({ params }: { params: { slug: string } }) {
   const componentMap: Record<string, React.ReactNode> = {
     coursetype: <CourseType />,
     course: <Course />,
