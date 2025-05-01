@@ -3,8 +3,17 @@ import CourseOffering from "@/components/CourseOffering";
 import CourseType from "@/components/CourseType";
 import StudentRegistration from "@/components/StudentRegistration";
 import { notFound } from "next/navigation";
+import { NextPage } from "next";
 
-export default function DynamicPage({ params }: { params: { slug: string } }) {
+// Define the props type for the dynamic page
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+// Use NextPage to type the component
+const DynamicPage: NextPage<PageProps> = ({ params }) => {
   const componentMap: Record<string, React.ReactNode> = {
     coursetype: <CourseType />,
     course: <Course />,
@@ -19,4 +28,6 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
   }
 
   return content;
-}
+};
+
+export default DynamicPage;
