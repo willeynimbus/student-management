@@ -4,14 +4,13 @@ import CourseType from "@/components/CourseType";
 import StudentRegistration from "@/components/StudentRegistration";
 import { notFound } from "next/navigation";
 
-interface PageProps {
+interface Props {
   params: {
     slug: string;
   };
-  searchParams: Record<string, string | string[] | undefined>;
 }
 
-export default function DynamicPage({ params }: PageProps) {
+export default function DynamicPage({ params }: Props) {
   const componentMap: Record<string, React.ReactNode> = {
     coursetype: <CourseType />,
     course: <Course />,
